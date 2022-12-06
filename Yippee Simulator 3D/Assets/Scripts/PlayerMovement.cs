@@ -53,5 +53,10 @@ public class PlayerMovement : MonoBehaviour
         //adding gravity to the player
         velocity.y += grav * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        if (groundCheck.position.y < -10)
+        {
+            FindObjectOfType<GameManager>().EndGame();
+        }
     }
 }
